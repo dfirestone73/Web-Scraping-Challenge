@@ -5,7 +5,7 @@ import scrape_craigslist
 app = Flask(__name__)
 
 # Use flask_pymongo to set up mongo connection
-app.config["MONGO_URI"] = "mongodb://localhost:27017/craigslist_app"
+app.config["MONGO_URI"] = "mongodb://localhost:27017"
 mongo = PyMongo(app)
 
 # Or set inline
@@ -14,10 +14,9 @@ mongo = PyMongo(app)
 
 @app.route("/scrape")
 def scraper():
-    listings = mongo.db.listings
-    listings_data = scrape_craigslist.scrape()
-    listings.update({}, listings_data, upsert=True)
-    return redirect("/", code=302)
+    dictionary = mongo.db.listings
+    dictionary_data = scrape_mars.scrape()
+    return complete_dict
 
 
 if __name__ == "__main__":
