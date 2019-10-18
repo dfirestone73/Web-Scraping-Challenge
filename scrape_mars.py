@@ -225,11 +225,20 @@ def scrape():
 # In[149]:
 
 
-    complex['hemisphere_images']=hemisphere_image_urls
+    complete_dict['hemisphere_images']=hemisphere_image_urls
 
 
 # In[ ]:
 
+    complete_mars_dict={
+        'News_Title':complete_dict['news_titles'],
+        'News_Summary':complete_dict['paragraph_texts'],
+        'Featured_Image':complete_dict['feature_image'],
+        'Mars_Weather':complete_dict['mars_weathers'],
+        'Mars_Facts':complete_dict['marsfacts'],
+        'Hemisphere_Images':complete_dict['hemisphere_images']
+    }
 
-    return complete_dict
+
+    return complete_mars_dict
 
